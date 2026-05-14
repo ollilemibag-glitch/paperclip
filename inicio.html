@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antes de começar · Configuração do Assistente Virtual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf9f7;--bg2:#f4f2ef;--white:#fff;--border:#e8e4de;--border2:#d4cfc8;--text:#1a1714;--text2:#6b6560;--text3:#a09b95;--accent:#2d6a4f;--accent-light:rgba(45,106,79,.08);--gold:#b07d3a;--gold-light:rgba(176,125,58,.1)}
+*{box-sizing:border-box;margin:0;padding:0}body{min-height:100vh;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.7}.page{max-width:1040px;margin:0 auto;padding:54px 22px 70px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:42px}.brand{display:flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}.pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2.5s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}.tag{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3)}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:stretch}.hero-card{background:var(--white);border:1px solid var(--border);border-radius:28px;padding:46px;box-shadow:0 14px 45px rgba(26,23,20,.07)}.eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}.title{font-family:'Playfair Display',serif;font-size:46px;line-height:1.05;font-weight:600;margin-bottom:18px}.desc{font-size:16px;color:var(--text2);max-width:600px}.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:12px;padding:14px 24px;font-weight:600;font-size:14px;transition:.2s}.btn-primary{background:var(--text);color:#fff}.btn-primary:hover{background:var(--accent);transform:translateY(-1px);box-shadow:0 8px 24px rgba(45,106,79,.22)}.btn-secondary{background:var(--white);color:var(--text2);border:1.5px solid var(--border)}.btn-secondary:hover{border-color:var(--border2);color:var(--text)}.side-card{background:var(--text);color:#fff;border-radius:28px;padding:34px;display:flex;flex-direction:column;justify-content:space-between;min-height:430px;box-shadow:0 14px 45px rgba(26,23,20,.14)}.side-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:16px}.side-title{font-family:'Playfair Display',serif;font-size:28px;line-height:1.12;margin-bottom:16px}.side-text{color:rgba(255,255,255,.72);font-size:14px}.mini-list{display:grid;gap:13px;margin-top:28px}.mini{display:flex;gap:11px;align-items:flex-start;color:rgba(255,255,255,.78);font-size:13px}.mini span{width:24px;height:24px;border-radius:7px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex:none}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}.info{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:22px;min-height:150px}.info-icon{width:36px;height:36px;border-radius:10px;background:var(--accent-light);display:flex;align-items:center;justify-content:center;margin-bottom:14px}.info h3{font-family:'Playfair Display',serif;font-size:20px;line-height:1.2;margin-bottom:8px}.info p{font-size:13.5px;color:var(--text2)}.notice{margin-top:18px;background:var(--gold-light);border:1.5px solid rgba(176,125,58,.25);border-radius:16px;padding:16px 18px;color:var(--text2);font-size:13.5px;display:flex;gap:12px}.notice strong{color:var(--gold)}.steps{margin-top:34px;background:var(--white);border:1px solid var(--border);border-radius:22px;padding:28px}.steps h2{font-family:'Playfair Display',serif;font-size:25px;margin-bottom:18px}.step-row{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-top:1px solid var(--border)}.step-row:first-of-type{border-top:0;padding-top:0}.num{width:38px;height:38px;border-radius:10px;background:var(--bg2);border:1px solid var(--border);font-family:'DM Mono',monospace;font-size:13px;color:var(--accent);display:flex;align-items:center;justify-content:center}.step-row h3{font-size:15px;margin-bottom:3px}.step-row p{font-size:13.5px;color:var(--text2)}.footer-cta{margin-top:28px;text-align:center}.small{margin-top:10px;color:var(--text3);font-size:12.5px}@media(max-width:840px){.top{display:block}.tag{margin-top:8px}.hero{grid-template-columns:1fr}.hero-card{padding:32px 24px}.title{font-size:34px}.grid{grid-template-columns:1fr}.side-card{min-height:auto}.actions{display:block}.btn{width:100%;margin-top:10px}.page{padding-top:32px}}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="top">
+    <div class="brand"><span class="pulse"></span> Configuração do assistente</div>
+    <div class="tag">Briefing inteligente · WhatsApp</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-card">
+      <div class="eyebrow">Antes de começar</div>
+      <h1 class="title">Vamos preparar seu assistente virtual do jeito certo.</h1>
+      <p class="desc">Este formulário reúne as informações que a equipe precisa para configurar um bot de WhatsApp alinhado ao seu estúdio: serviços, tom de voz, regras de atendimento, agendamento e respostas importantes.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="./preview-visual.html">Começar preenchimento</a>
+        <a class="btn btn-secondary" href="#como-funciona">Entender como funciona</a>
+      </div>
+    </div>
+
+    <aside class="side-card">
+      <div>
+        <div class="side-label">Tempo estimado</div>
+        <div class="side-title">Leva cerca de 8 a 12 minutos.</div>
+        <p class="side-text">Você não precisa ter tudo perfeito agora. Responda com o máximo de clareza possível; se algo não se aplicar ao seu caso, deixe em branco.</p>
+      </div>
+      <div class="mini-list">
+        <div class="mini"><span>✓</span><div>O cliente não vê relatório técnico, JSON ou prompt.</div></div>
+        <div class="mini"><span>✓</span><div>As perguntas mudam conforme as funções escolhidas.</div></div>
+        <div class="mini"><span>✓</span><div>Ao final, basta clicar em enviar.</div></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="grid">
+    <div class="info"><div class="info-icon">🎯</div><h3>Escolha as funções</h3><p>Você marca o que quer que o bot faça: responder dúvidas, falar preços, agendar, explicar entrega ou chamar humano.</p></div>
+    <div class="info"><div class="info-icon">💬</div><h3>Defina o tom</h3><p>O bot precisa saber se deve falar de forma mais formal, acolhedora, direta, próxima ou descontraída.</p></div>
+    <div class="info"><div class="info-icon">🛡️</div><h3>Evite respostas erradas</h3><p>Você informa o que o bot nunca deve prometer, revelar ou fazer sem confirmação da equipe.</p></div>
+  </section>
+
+  <div class="notice"><span>⚠️</span><div><strong>Importante:</strong> quanto mais específicas forem as respostas, melhor o assistente conseguirá atender seus clientes depois. Exemplos, regras e frases reais ajudam muito.</div></div>
+
+  <section class="steps" id="como-funciona">
+    <h2>Como funciona o preenchimento</h2>
+    <div class="step-row"><div class="num">01</div><div><h3>Você informa os dados básicos do estúdio</h3><p>Nome, WhatsApp, cidade, endereço, Instagram e informações essenciais de identificação.</p></div></div>
+    <div class="step-row"><div class="num">02</div><div><h3>Você escolhe o que o bot deve fazer</h3><p>O questionário é condicional: se você não quiser que o bot fale sobre preços, por exemplo, a seção de preços não precisa aparecer.</p></div></div>
+    <div class="step-row"><div class="num">03</div><div><h3>Você responde apenas o necessário</h3><p>As perguntas aparecem conforme as funções escolhidas, deixando o processo mais rápido e menos confuso.</p></div></div>
+    <div class="step-row"><div class="num">04</div><div><h3>Você envia para a equipe</h3><p>Depois do envio, suas respostas são encaminhadas para a configuração. Você não precisa copiar nenhum relatório.</p></div></div>
+  </section>
+
+  <div class="footer-cta">
+    <a class="btn btn-primary" href="./preview-visual.html">Começar agora</a>
+    <div class="small">Separe, se tiver: tabela de preços, horários, regras de agendamento e perguntas frequentes.</div>
+  </div>
+</main>
+</body>
+</html>
