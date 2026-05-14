@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configuração Fácil · Assistente Virtual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf9f7;--card:#fff;--line:#e8e4de;--line2:#d4cfc8;--text:#1a1714;--muted:#6b6560;--soft:#a09b95;--accent:#2d6a4f;--accentLight:rgba(45,106,79,.08);--gold:#b07d3a;--goldLight:rgba(176,125,58,.1);--danger:#b42318;--shadow:0 12px 42px rgba(26,23,20,.08)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:linear-gradient(180deg,#faf9f7,#f4f2ef);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.65}.wrap{max-width:860px;margin:0 auto;padding:40px 18px 110px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.brand{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);display:flex;gap:8px;align-items:center}.dot{width:8px;height:8px;background:var(--accent);border-radius:50%}.time{font-size:12px;color:var(--soft)}.hero{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:38px;box-shadow:var(--shadow);margin-bottom:18px}.eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}.hero h1{font-family:'Playfair Display',serif;font-size:40px;line-height:1.08;font-weight:600;margin-bottom:14px}.hero p{color:var(--muted);font-size:16px;max-width:640px}.helper{margin-top:20px;background:var(--goldLight);border:1px solid rgba(176,125,58,.24);border-radius:14px;padding:13px 15px;color:var(--muted);font-size:13px}.section{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;margin-bottom:16px;box-shadow:0 2px 12px rgba(26,23,20,.035)}.head{display:flex;gap:13px;align-items:flex-start;margin-bottom:22px}.num{width:38px;height:38px;border-radius:11px;background:#f4f2ef;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;color:var(--accent);font-size:13px;flex:none}.head h2{font-family:'Playfair Display',serif;font-size:24px;line-height:1.15;font-weight:600}.head p{color:var(--soft);font-size:13px;margin-top:3px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:17px}.field:last-child{margin-bottom:0}.label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}.req{color:var(--danger)}.hint{display:block;color:var(--soft);font-size:12px;font-weight:300;margin-top:2px}input,textarea,select{width:100%;border:1.5px solid var(--line);background:#faf9f7;border-radius:12px;padding:12px 13px;font:inherit;font-size:14px;color:var(--text);outline:0}textarea{min-height:92px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--accent);background:#fff;box-shadow:0 0 0 4px var(--accentLight)}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.choice{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);background:#faf9f7;border-radius:15px;padding:14px;cursor:pointer;transition:.16s}.choice input{width:auto;margin-top:3px;accent-color:var(--accent)}.choice strong{display:block;font-size:14px;line-height:1.25}.choice span{display:block;color:var(--soft);font-size:12px;line-height:1.42;margin-top:2px}.choice:has(input:checked){border-color:var(--accent);background:var(--accentLight)}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border:1.5px solid var(--line);background:#faf9f7;color:var(--muted);border-radius:999px;padding:8px 13px;font-size:13px;cursor:pointer;user-select:none;display:inline-flex;align-items:center;gap:7px}.chip input{width:auto}.chip:has(input:checked){border-color:var(--accent);background:var(--accentLight);color:var(--accent);font-weight:600}.conditional{display:none}.conditional.show{display:block}.mini-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--soft);margin:18px 0 10px;display:flex;align-items:center;gap:12px}.mini-title:before,.mini-title:after{content:'';height:1px;background:var(--line);flex:1}.submit{position:fixed;left:0;right:0;bottom:0;background:rgba(250,249,247,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:14px 18px;z-index:30}.submit-inner{max-width:860px;margin:auto;display:flex;gap:14px;align-items:center;justify-content:space-between}.submit small{color:var(--soft)}.btn{border:0;background:var(--text);color:#fff;border-radius:13px;padding:14px 28px;font-weight:700;font-size:14px;cursor:pointer}.btn:hover{background:var(--accent)}.toast{display:none;margin-bottom:14px;background:var(--accentLight);border:1px solid rgba(45,106,79,.22);color:var(--accent);padding:13px 15px;border-radius:14px;font-weight:600}.toast.show{display:block}.skip{font-size:12px;color:var(--soft);margin-top:8px}.progress{height:6px;background:#eee9e3;border-radius:99px;margin-top:22px;overflow:hidden}.bar{height:100%;width:0%;background:linear-gradient(90deg,var(--accent),#52b788);transition:.25s}.progress-text{font-family:'DM Mono',monospace;font-size:12px;color:var(--soft);margin-top:7px;text-align:right}@media(max-width:720px){.top{display:block}.time{margin-top:8px}.hero{padding:28px 22px}.hero h1{font-size:31px}.grid{grid-template-columns:1fr}.submit-inner{display:block}.btn{width:100%;margin-top:10px}.section{padding:23px}.wrap{padding-top:26px}.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<form id="form" action="https://formsubmit.co/ollilemibag@gmail.com" method="POST">
+<input type="hidden" name="_subject" value="Novo briefing fácil de configuração do bot WhatsApp">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="https://ollilemibag-glitch.github.io/paperclip/obrigado.html">
+<input type="hidden" name="Funções selecionadas" id="featuresCompiled">
+<div class="wrap">
+  <div class="top"><div class="brand"><span class="dot"></span>Configuração fácil</div><div class="time">Tempo médio: 5 a 8 minutos</div></div>
+  <section class="hero">
+    <div class="eyebrow">Briefing do assistente virtual</div>
+    <h1>Responda só o essencial para configurar seu bot.</h1>
+    <p>Este formulário é mais simples: você escolhe o que quer que o bot faça e responde apenas o que for necessário para essas funções.</p>
+    <div class="helper">Não precisa escrever perfeito. Pode responder em frases simples, como se estivesse explicando para alguém da equipe.</div>
+    <div class="progress"><div class="bar" id="bar"></div></div><div class="progress-text" id="pct">0%</div>
+  </section>
+  <div class="toast" id="toast">Enviando suas respostas…</div>
+
+  <section class="section" id="s1"><div class="head"><div class="num">01</div><div><h2>Dados básicos</h2><p>Para identificar o estúdio e o canal de atendimento.</p></div></div>
+    <div class="grid"><div class="field"><label class="label">Nome do estúdio <span class="req">*</span></label><input required name="Nome do estúdio" placeholder="Ex: Lizart Fotografia"></div><div class="field"><label class="label">WhatsApp principal <span class="req">*</span></label><input required name="WhatsApp" inputmode="tel" placeholder="14999999999"></div></div>
+    <div class="grid"><div class="field"><label class="label">Cidade e estado <span class="req">*</span></label><input required name="Cidade e estado" placeholder="Ex: São Manuel, SP"></div><div class="field"><label class="label">Instagram ou site</label><input name="Instagram ou site" placeholder="@seuestudio ou link"></div></div>
+  </section>
+
+  <section class="section" id="s2"><div class="head"><div class="num">02</div><div><h2>O que o bot deve fazer?</h2><p>Marque apenas o que você quer usar agora.</p></div></div>
+    <div class="cards">
+      <label class="choice"><input type="checkbox" class="feature" name="Função" value="Responder sobre serviços" data-target="servicos" checked><div><strong>Responder sobre serviços</strong><span>Tipos de ensaio, onde atende e o que oferece.</span></div></label>
+      <label class="choice"><input type="checkbox" class="feature" name="Função" value="Falar sobre preços" data-target="precos"><div><strong>Falar sobre preços</strong><span>Valores, pacotes, formas de pagamento.</span></div></label>
+      <label class="choice"><input type="checkbox" class="feature" name="Função" value="Agendar ou captar interesse" data-target="agenda"><div><strong>Ajudar no agendamento</strong><span>Coletar dados ou enviar link de agenda.</span></div></label>
+      <label class="choice"><input type="checkbox" class="feature" name="Função" value="Responder perguntas frequentes" data-target="faq"><div><strong>Responder dúvidas comuns</strong><span>Prazo, remarcação, fotos, funcionamento.</span></div></label>
+      <label class="choice"><input type="checkbox" class="feature" name="Função" value="Explicar entrega das fotos" data-target="entrega"><div><strong>Explicar entrega</strong><span>Prazo, formato, galeria e retoques.</span></div></label>
+      <label class="choice"><input type="checkbox" class="feature" name="Função" value="Chamar atendimento humano" data-target="humano"><div><strong>Chamar humano</strong><span>Quando o bot deve passar para uma pessoa.</span></div></label>
+    </div>
+  </section>
+
+  <section class="section conditional show" id="servicos"><div class="head"><div class="num">03</div><div><h2>Serviços</h2><p>Marque o que o bot pode mencionar.</p></div></div>
+    <div class="field"><label class="label">Quais serviços vocês oferecem?</label><div class="chips"><label class="chip"><input type="checkbox" name="Serviços" value="Newborn">Newborn</label><label class="chip"><input type="checkbox" name="Serviços" value="Gestante">Gestante</label><label class="chip"><input type="checkbox" name="Serviços" value="Infantil">Infantil</label><label class="chip"><input type="checkbox" name="Serviços" value="Família">Família</label><label class="chip"><input type="checkbox" name="Serviços" value="Aniversário">Aniversário</label><label class="chip"><input type="checkbox" name="Serviços" value="Casamento">Casamento</label><label class="chip"><input type="checkbox" name="Serviços" value="Formatura">Formatura</label><label class="chip"><input type="checkbox" name="Serviços" value="Eventos">Eventos</label><label class="chip"><input type="checkbox" name="Serviços" value="Produto / marca">Produto / marca</label></div></div>
+    <div class="field"><label class="label">Tem algum serviço importante que não apareceu acima?</label><input name="Outros serviços" placeholder="Ex: ensaio externo, batizado, acompanhamento mensal…"></div>
+    <div class="field"><label class="label">Onde vocês atendem?</label><select name="Onde atende"><option value="Não informado">Selecione</option><option>Só no estúdio</option><option>No estúdio e externo na cidade</option><option>Atende cidades próximas</option><option>Atende em qualquer local combinado</option></select></div>
+  </section>
+
+  <section class="section conditional" id="precos"><div class="head"><div class="num">04</div><div><h2>Preços</h2><p>Você pode colar a tabela inteira. Não precisa separar campo por campo.</p></div></div>
+    <div class="field"><label class="label">Como o bot deve falar de preço?</label><div class="chips"><label class="chip"><input type="radio" name="Como falar de preço" value="Pode informar valores">Pode informar valores</label><label class="chip"><input type="radio" name="Como falar de preço" value="Só faixa de preço">Só faixa de preço</label><label class="chip"><input type="radio" name="Como falar de preço" value="Pedir orçamento personalizado">Pedir orçamento personalizado</label></div></div>
+    <div class="field"><label class="label">Cole aqui a tabela de preços ou explique os pacotes</label><textarea name="Tabela ou explicação de preços" placeholder="Ex: Newborn a partir de R$ X. Gestante R$ Y. Parcelamos em até 3x. Deslocamento à parte…"></textarea></div>
+    <div class="field"><label class="label">Formas de pagamento</label><div class="chips"><label class="chip"><input type="checkbox" name="Pagamentos" value="Pix">Pix</label><label class="chip"><input type="checkbox" name="Pagamentos" value="Cartão">Cartão</label><label class="chip"><input type="checkbox" name="Pagamentos" value="Dinheiro">Dinheiro</label><label class="chip"><input type="checkbox" name="Pagamentos" value="Transferência">Transferência</label></div></div>
+  </section>
+
+  <section class="section conditional" id="agenda"><div class="head"><div class="num">05</div><div><h2>Agendamento</h2><p>Escolha a forma mais simples para o bot agir.</p></div></div>
+    <div class="field"><label class="label">Quando alguém quiser agendar, o bot deve:</label><select name="Fluxo de agendamento" id="agendaFlow"><option value="Não informado">Selecione</option><option value="Coletar dados e avisar que a equipe retorna">Coletar dados e avisar que a equipe retorna</option><option value="Enviar link de agendamento">Enviar link de agendamento</option><option value="Chamar humano imediatamente">Chamar humano imediatamente</option></select></div>
+    <div class="field" id="agendaLinkBox" style="display:none"><label class="label">Link de agendamento</label><input name="Link de agendamento" placeholder="https://..."></div>
+    <div class="field"><label class="label">Quais dados o bot precisa pedir antes de passar para vocês?</label><textarea name="Dados para agendamento" placeholder="Ex: nome, tipo de ensaio, idade da criança, melhor data, melhor horário, cidade…"></textarea></div>
+    <div class="field"><label class="label">Horário de atendimento</label><input name="Horário de atendimento" placeholder="Ex: Segunda a sexta, das 9h às 18h"></div>
+  </section>
+
+  <section class="section conditional" id="faq"><div class="head"><div class="num">06</div><div><h2>Dúvidas frequentes</h2><p>Escreva do jeito que lembrar. Uma por linha já ajuda.</p></div></div>
+    <div class="field"><label class="label">Quais perguntas os clientes sempre fazem?</label><textarea name="Perguntas frequentes" placeholder="Ex: Quanto tempo demora para entregar? Posso remarcar? Entrega foto sem edição? Tem roupa inclusa? Como funciona o newborn?"></textarea></div>
+  </section>
+
+  <section class="section conditional" id="entrega"><div class="head"><div class="num">07</div><div><h2>Entrega das fotos</h2><p>Prazo e formato de entrega.</p></div></div>
+    <div class="grid"><div class="field"><label class="label">Prazo médio</label><input name="Prazo médio de entrega" placeholder="Ex: 15 a 20 dias úteis"></div><div class="field"><label class="label">Como entrega?</label><input name="Formato de entrega" placeholder="Ex: galeria online, Drive, álbum…"></div></div>
+    <div class="field"><label class="label">Tem regra de retoque ou revisão?</label><textarea name="Regras de retoque e revisão" placeholder="Ex: cliente escolhe X fotos, retoque extra tem custo, não entregamos fotos brutas…"></textarea></div>
+  </section>
+
+  <section class="section conditional" id="humano"><div class="head"><div class="num">08</div><div><h2>Atendimento humano</h2><p>Quando o bot deve parar e chamar alguém.</p></div></div>
+    <div class="field"><label class="label">Em quais situações o bot deve chamar uma pessoa?</label><textarea name="Quando chamar humano" placeholder="Ex: reclamação, pedido de desconto, casamento, cliente irritado, dúvida fora do padrão, fechamento de pacote…"></textarea></div>
+  </section>
+
+  <section class="section"><div class="head"><div class="num">09</div><div><h2>Tom de voz e regras finais</h2><p>Para o bot parecer com a sua marca e evitar promessas erradas.</p></div></div>
+    <div class="grid"><div class="field"><label class="label">Tom do atendimento</label><select name="Tom do atendimento"><option>Profissional e simpático</option><option>Acolhedor e próximo</option><option>Formal e objetivo</option><option>Descontraído</option></select></div><div class="field"><label class="label">Pode usar emojis?</label><select name="Uso de emojis"><option>Poucos e com bom gosto</option><option>Sim, pode usar bastante</option><option>Não usar emojis</option></select></div></div>
+    <div class="field"><label class="label">O que o bot nunca deve prometer ou fazer?</label><textarea name="O que o bot nunca deve fazer" placeholder="Ex: nunca dar desconto sem autorização, nunca confirmar data sem equipe, nunca prometer entrega urgente…"></textarea></div>
+    <div class="field"><label class="label">Alguma observação final importante?</label><textarea name="Observações finais" placeholder="Escreva qualquer detalhe importante que a equipe precisa saber."></textarea></div>
+  </section>
+</div>
+<div class="submit"><div class="submit-inner"><small>Formulário fácil · apenas o essencial para configurar o bot.</small><button class="btn" type="submit">Enviar configuração</button></div></div>
+</form>
+<script>
+const features=[...document.querySelectorAll('.feature')];
+function updateSections(){features.forEach(f=>{const s=document.getElementById(f.dataset.target);if(!s)return;s.classList.toggle('show',f.checked);s.querySelectorAll('input,textarea,select').forEach(el=>{el.disabled=!f.checked})});compileFeatures();updateProgress()}
+function compileFeatures(){document.getElementById('featuresCompiled').value=features.filter(f=>f.checked).map(f=>f.value).join(' | ')}
+features.forEach(f=>f.addEventListener('change',updateSections));
+document.getElementById('agendaFlow').addEventListener('change',e=>{document.getElementById('agendaLinkBox').style.display=e.target.value==='Enviar link de agendamento'?'block':'none'});
+document.addEventListener('input',updateProgress);document.addEventListener('change',updateProgress);
+function updateProgress(){const visibleSections=[...document.querySelectorAll('.section')].filter(s=>!s.classList.contains('conditional')||s.classList.contains('show'));let fields=visibleSections.flatMap(s=>[...s.querySelectorAll('input:not([type=hidden]), textarea, select')]).filter(el=>!el.disabled);let total=0,filled=0;const groups=new Set();fields.forEach(el=>{if(el.type==='checkbox'||el.type==='radio'){if(el.name)groups.add(el.name);return}total++;if(el.value&&el.value.trim()&&el.value!=='Não informado')filled++});groups.forEach(name=>{total++;if(document.querySelector(`input[name="${CSS.escape(name)}"]:checked:not(:disabled)`))filled++});const pct=total?Math.min(100,Math.round((filled/total)*100)):0;document.getElementById('bar').style.width=pct+'%';document.getElementById('pct').textContent=pct+'%'}
+document.getElementById('form').addEventListener('submit',()=>{compileFeatures();document.getElementById('toast').classList.add('show')});
+updateSections();
+</script>
+</body>
+</html>
