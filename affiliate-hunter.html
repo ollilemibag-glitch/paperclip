@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Hunter</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Unbounded:wght@400;700;900&display=swap');
+
+  :root {
+    --bg: #07080f;
+    --card: #0e0f1a;
+    --border: #1c1e30;
+    --green: #00e87a;
+    --orange: #ff5c35;
+    --blue: #4d9fff;
+    --text: #dde0f0;
+    --muted: #4a4d6a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px 16px 60px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+
+  .hdr { margin-bottom: 28px; }
+  .hdr-top { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .logo {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, var(--green), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .version { font-size: 0.6rem; padding: 2px 7px; border: 1px solid var(--border); border-radius: 3px; color: var(--muted); }
+  .hdr-sub { font-size: 0.7rem; color: var(--muted); }
+
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+
+  .sec-label {
+    font-size: 0.62rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sec-label a { color: var(--blue); text-decoration: none; font-size: 0.62rem; }
+
+  .key-row { display: flex; gap: 8px; }
+
+  input[type="password"], input[type="text"] {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 9px 12px;
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  input:focus { border-color: var(--green); }
+  input::placeholder { color: var(--muted); }
+
+  .btn-save {
+    background: var(--green);
+    color: #000;
+    border: none;
+    border-radius: 7px;
+    padding: 9px 14px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: filter 0.2s;
+    flex-shrink: 0;
+  }
+  .btn-save:hover { filter: brightness(1.1); }
+
+  .key-saved { font-size: 0.65rem; color: var(--green); margin-top: 7px; display: none; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 5px 11px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .chip:hover { border-color: var(--green); color: var(--green); }
+  .chip.on { border-color: var(--green); color: var(--green); background: rgba(0,232,122,0.08); }
+
+  .custom-row { display: flex; gap: 8px; margin-bottom: 14px; }
+
+  .tip {
+    font-size: 0.62rem;
+    color: var(--muted);
+    background: rgba(77,159,255,0.05);
+    border: 1px solid rgba(77,159,255,0.1);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+  }
+
+  .btn-search {
+    width: 100%;
+    background: linear-gradient(90deg, var(--green), #00c96a);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    font-family: 'Unbounded', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn-search:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-search:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+
+  .status { display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--muted); padding: 10px 0; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+  .dot.live { background: var(--green); animation: blink 1s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 10px;
+    animation: up 0.25s ease;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #2a2d45; }
+  @keyframes up { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:none} }
+
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+  .card-title { font-family: 'Unbounded', sans-serif; font-size: 0.78rem; font-weight: 700; line-height: 1.3; flex: 1; }
+
+  .badge { font-size: 0.55rem; padding: 3px 7px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; }
+  .badge-high { background: rgba(255,92,53,0.15); color: var(--orange); border: 1px solid rgba(255,92,53,0.25); }
+  .badge-mid  { background: rgba(77,159,255,0.12); color: var(--blue);   border: 1px solid rgba(77,159,255,0.2); }
+  .badge-low  { background: rgba(74,77,106,0.3);   color: var(--muted);  border: 1px solid var(--border); }
+
+  .card-url { font-size: 0.6rem; color: var(--muted); margin-bottom: 8px; word-break: break-all; }
+  .card-desc { font-size: 0.74rem; color: #9090b8; line-height: 1.55; margin-bottom: 10px; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+  .tag { font-size: 0.58rem; padding: 2px 8px; border-radius: 3px; background: rgba(255,92,53,0.08); color: var(--orange); border: 1px solid rgba(255,92,53,0.18); }
+
+  .card-actions { display: flex; gap: 7px; flex-wrap: wrap; }
+  .btn-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    padding: 5px 11px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.15s;
+  }
+  .btn-link:hover { border-color: var(--green); color: var(--green); }
+
+  .loader { text-align: center; padding: 40px; color: var(--muted); font-size: 0.7rem; }
+  .spinner { width: 26px; height: 26px; border: 2px solid var(--border); border-top-color: var(--green); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 12px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .empty { text-align: center; padding: 36px; color: var(--muted); font-size: 0.78rem; line-height: 1.8; }
+  .err { background: rgba(255,92,53,0.07); border: 1px solid rgba(255,92,53,0.2); border-radius: 8px; padding: 12px; color: var(--orange); font-size: 0.7rem; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hdr">
+    <div class="hdr-top">
+      <span class="logo">AFFILIATE HUNTER</span>
+      <span class="version">v2.0</span>
+    </div>
+    <div class="hdr-sub">// rastreia ferramentas no github.io com links de afiliado</div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">
+      🔑 Gemini API Key (gratuita)
+      <a href="https://aistudio.google.com/app/apikey" target="_blank">→ pegar aqui</a>
+    </div>
+    <div class="key-row">
+      <input type="password" id="apiKey" placeholder="Cole sua key (AIza...)" />
+      <button class="btn-save" onclick="saveKey()">SALVAR</button>
+    </div>
+    <div class="key-saved" id="keySaved">✓ Key salva no navegador</div>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">Nicho</div>
+    <div class="chips" id="chips">
+      <button class="chip on" data-v="calculadora">🧮 Calculadora</button>
+      <button class="chip" data-v="quiz teste">🎯 Quiz / Teste</button>
+      <button class="chip" data-v="comparador produtos">⚖️ Comparador</button>
+      <button class="chip" data-v="gerador gratuito">⚙️ Gerador</button>
+      <button class="chip" data-v="suplementos dieta">💪 Suplementos</button>
+      <button class="chip" data-v="investimento finanças">💰 Finanças</button>
+      <button class="chip" data-v="hospedagem wordpress">🌐 Hospedagem</button>
+      <button class="chip" data-v="curso online">📚 Cursos</button>
+      <button class="chip" data-v="emagrecimento emagrecer">🏃 Emagrecimento</button>
+      <button class="chip" data-v="vpn segurança">🔒 VPN</button>
+    </div>
+
+    <div class="sec-label">Palavra-chave personalizada (opcional)</div>
+    <div class="custom-row">
+      <input type="text" id="customQ" placeholder="ex: simulador de empréstimo, gerador de cardápio..." />
+    </div>
+
+    <div class="tip">💡 O Gemini vai buscar na web ferramentas gratuitas no github.io e identificar sinais de afiliado como Hotmart, Amazon, Monetizze, Eduzz, Kiwify etc.</div>
+
+    <button class="btn-search" id="searchBtn" onclick="doSearch()">🔍 BUSCAR FERRAMENTAS</button>
+  </div>
+
+  <div class="status">
+    <div class="dot" id="dot"></div>
+    <span id="statusTxt">aguardando...</span>
+  </div>
+
+  <div id="results"></div>
+</div>
+
+<script>
+  let activeNicho = 'calculadora';
+
+  document.querySelectorAll('.chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(x => x.classList.remove('on'));
+      c.classList.add('on');
+      activeNicho = c.dataset.v;
+    });
+  });
+
+  function saveKey() {
+    const k = document.getElementById('apiKey').value.trim();
+    if (!k) return;
+    localStorage.setItem('gem_key', k);
+    document.getElementById('keySaved').style.display = 'block';
+  }
+
+  window.addEventListener('load', () => {
+    const k = localStorage.getItem('gem_key');
+    if (k) {
+      document.getElementById('apiKey').value = k;
+      document.getElementById('keySaved').style.display = 'block';
+    }
+  });
+
+  function getKey() {
+    return document.getElementById('apiKey').value.trim() || localStorage.getItem('gem_key') || '';
+  }
+
+  async function doSearch() {
+    const key = getKey();
+    if (!key) { alert('Cole sua Gemini API Key primeiro!'); return; }
+
+    const custom = document.getElementById('customQ').value.trim();
+    const termo = custom || activeNicho;
+    const btn = document.getElementById('searchBtn');
+    const dot = document.getElementById('dot');
+    const statusTxt = document.getElementById('statusTxt');
+    const results = document.getElementById('results');
+
+    btn.disabled = true;
+    dot.classList.add('live');
+    statusTxt.textContent = `buscando ferramentas de "${termo}" no github.io...`;
+    results.innerHTML = '<div class="loader"><div class="spinner"></div>Gemini pesquisando na web...</div>';
+
+    const prompt = `Pesquise na web por ferramentas gratuitas hospedadas no GitHub Pages (domínio github.io) relacionadas a "${termo}".
+
+Procure páginas que sejam ferramentas interativas (calculadoras, quizzes, comparadores, geradores, simuladores) E que contenham links de afiliado ou menções a programas de afiliado como Hotmart, Amazon, Monetizze, Eduzz, Kiwify, ClickBank, etc.
+
+Retorne SOMENTE um JSON válido, sem markdown, sem explicação, sem backticks, exatamente neste formato:
+{"results":[{"title":"nome","url":"https://...github.io/...","description":"o que faz e como monetiza","affiliate_signals":["hotmart"],"tool_type":"calculadora","confidence":"alta"}]}
+
+Até 6 resultados. Se não achar, retorne {"results":[]}.`;
+
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            tools: [{ google_search: {} }],
+            contents: [{ parts: [{ text: prompt }] }]
+          })
+        }
+      );
+
+      const data = await res.json();
+      if (data.error) throw new Error(data.error.message);
+
+      const raw = (data.candidates?.[0]?.content?.parts || [])
+        .filter(p => p.text).map(p => p.text).join('');
+
+      let parsed = { results: [] };
+      try {
+        const m = raw.match(/\{[\s\S]*\}/);
+        if (m) parsed = JSON.parse(m[0]);
+      } catch { parsed = { results: [] }; }
+
+      render(parsed.results || [], termo);
+      statusTxt.textContent = `${(parsed.results||[]).length} resultado(s) para "${termo}"`;
+
+    } catch (err) {
+      results.innerHTML = `<div class="err">❌ Erro: ${err.message}<br><br>Verifique sua API key em aistudio.google.com e tente novamente.</div>`;
+      statusTxt.textContent = 'erro na busca';
+    }
+
+    dot.classList.remove('live');
+    btn.disabled = false;
+  }
+
+  function render(items, termo) {
+    const el = document.getElementById('results');
+    if (!items.length) {
+      el.innerHTML = `<div class="empty">Nenhuma ferramenta com sinais de afiliado encontrada para "<strong>${termo}</strong>".<br><br>Tente outro nicho ou palavra-chave.</div>`;
+      return;
+    }
+    el.innerHTML = items.map(r => {
+      const bc = r.confidence === 'alta' ? 'badge-high' : r.confidence === 'media' ? 'badge-mid' : 'badge-low';
+      const bl = r.confidence === 'alta' ? '🔥 afiliado confirmado' : r.confidence === 'media' ? '⚡ possível afiliado' : '❓ incerto';
+      const tags = (r.affiliate_signals || []).map(s => `<span class="tag">${s}</span>`).join('');
+      return `<div class="card">
+        <div class="card-top">
+          <div class="card-title">${r.title || 'Sem título'}</div>
+          <span class="badge ${bc}">${bl}</span>
+        </div>
+        <div class="card-url">${r.url || '—'}</div>
+        <div class="card-desc">${r.description || '—'}</div>
+        ${tags ? `<div class="tags">${tags}</div>` : ''}
+        <div class="card-actions">
+          <a href="${r.url}" target="_blank" class="btn-link">↗ abrir</a>
+          <a href="view-source:${r.url}" target="_blank" class="btn-link">🔍 ver código</a>
+        </div>
+      </div>`;
+    }).join('');
+  }
+</script>
+</body>
+</html>
